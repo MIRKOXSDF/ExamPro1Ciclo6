@@ -10,6 +10,8 @@ namespace EXAMENDPRO1
     {
         static void Main(string[] args)
         {
+            Granja granja = new Granja();
+            granja.Game();
         }
     }
 }

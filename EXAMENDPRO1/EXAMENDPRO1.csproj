@@ -46,6 +46,7 @@
     <Compile Include="Animal.cs" />
     <Compile Include="Cerdo.cs" />
     <Compile Include="Gallina.cs" />
+    <Compile Include="Granja.cs" />
     <Compile Include="IAnimal.cs" />
     <Compile Include="Granjero.cs" />
     <Compile Include="Program.cs" />
