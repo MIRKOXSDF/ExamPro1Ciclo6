@@ -8,36 +8,30 @@ namespace EXAMENDPRO1
 {
     class SemillaManzana : Semilla
     {
-        public string tipoDeFruta;
-        public int frutasDisponibles;
-        public SemillaManzana(string nombre, int tiempoDeCrecimiento) : base(nombre, tiempoDeCrecimiento)
+        public int cantidadManzanas;
+
+        public SemillaManzana(string nombre, int tiempoCrecimiento) : base(nombre, tiempoCrecimiento)
         {
+            cantidadManzanas = 5;
         }
 
-        public override void Plantar(bool plantastes)
+        public override void Cosechar()
         {
-            if (plantastes)
+            if (crecimientoActual >= tiempoCrecimiento)
             {
-                Console.WriteLine($"Has plantado una semilla de manzana.");
-
+                Console.WriteLine($"¡Has cosechado {cantidadManzanas} manzanas!");
+                crecimientoActual = 0; 
             }
             else
             {
-                Console.WriteLine($"No se plantó nada");
-
+                Console.WriteLine($"La manzana aún no está lista. Faltan {tiempoCrecimiento - crecimientoActual} turnos para cosechar.");
             }
         }
 
-        public override void RecolectarFruta()
+        public override void Crecer()
         {
-            if (frutasDisponibles > 0)
-            {
-                Console.WriteLine($"Recolectaste {frutasDisponibles} {tipoDeFruta}(s).");
-            }
-            else
-            {
-                Console.WriteLine($"No hay más {tipoDeFruta}s disponibles para recolectar.");
-            }
+            crecimientoActual++;
+            Console.WriteLine($"La semilla de manzana ha sido0 plantado. Estado actual: {crecimientoActual}/{tiempoCrecimiento}.");
         }
     }
 }

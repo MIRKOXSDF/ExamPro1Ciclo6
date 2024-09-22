@@ -98,31 +98,75 @@ namespace EXAMENDPRO1
         }
         private void IniciarTrabajar()
         {
-            Console.WriteLine("¿Qué te gustaría hacer?");
-            Console.WriteLine("1. Sembrar semilla");
-            Console.WriteLine("2. Criar animales");
-            Console.WriteLine("3. Salir");
-
             bool active = true;
-            int option = int.Parse(Console.ReadLine());
-            while (active)
+
+            try
             {
-                switch (option)
+          
+
+                while (active)
                 {
-                    case 1:
-                        SembrarSemilla();
-                        break;
-                    case 2:
-                        CriarAnimales();
-                        break;
-                    case 3:
-                        return;
+                    Console.WriteLine("¿Qué te gustaría hacer?");
+                    Console.WriteLine("1. Sembrar semilla");
+                    Console.WriteLine("2. Criar animales");
+                    Console.WriteLine("3. Salir");
+                    int option = int.Parse(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            SembrarSemilla();
+                            break;
+                        case 2:
+                            CriarAnimales();
+                            break;
+                        case 3:
+                            return;
+                        default:
+                            Console.WriteLine("Opción no válida. Por favor, elige 1 , 2 o 3 .");
+                            break;
+                    }
                 }
             }
+            catch (FormatException)
+            {
+                Console.WriteLine("Elige un numero entero");
+
+            }
+
         }
         private void SembrarSemilla()
         {
+            if (semilla.Count == 0)
+            {
+                Console.WriteLine("No tienes semillas para plantar.");
+                return;
+            }
 
+            Console.WriteLine("Selecciona una semilla para sembrar:");
+            for (int i = 0; i < semilla.Count; i++)
+            {
+                Semilla s = semilla[i];
+                Console.WriteLine($"{i + 1}. {s.nombre}");
+            }
+
+            try
+            {
+                int opcion = int.Parse(Console.ReadLine()) - 1;
+                Semilla seleccion = semilla[opcion];
+
+                seleccion.Crecer();   
+                seleccion.Cosechar();
+                if (seleccion.crecimientoActual > seleccion.tiempoCrecimiento)
+                {
+
+                    semilla.RemoveAt(opcion);
+
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Elige un número entero válido.");
+            }
         }
         private void CriarAnimales()
         {
@@ -246,7 +290,7 @@ namespace EXAMENDPRO1
                 Console.WriteLine("Escoge tu tipo de semilla :");
                 Console.WriteLine("1. Semilla de frutas");
                 Console.WriteLine("2. Semilla de verduras");
-                Console.WriteLine("3. Lista de Animales obtenidos : ");
+                Console.WriteLine("3. Lista de Semillas obtenidos : ");
                 Console.WriteLine("4. Salir ");
                 int option = int.Parse(Console.ReadLine());
                 try
@@ -347,19 +391,30 @@ namespace EXAMENDPRO1
                 Console.WriteLine("Escoge el tipo de semilla de verdura :");
                 Console.WriteLine("1. Semilla de papa");
                 Console.WriteLine("2. Semilla de lechuga");
+                Console.WriteLine("3. Salir ");
+
                 int option = int.Parse(Console.ReadLine());
                 try
                 {
                     switch (option)
                     {
                         case 1:
-                            Console.WriteLine("Compraste una semilla de platano");
+                            Console.WriteLine("Compraste una semilla de papa");
+                            Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 20} de dinero");
+                            Semilla papa = new SemillaDePapa("Semilla de papa", 5);
+                            semilla.Add(papa);
 
                             break;
                         case 2:
-                            Console.WriteLine("Compraste una semilla de manzana");
+                            Console.WriteLine("Compraste una semilla de lechuga");
+                            Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
+                            Semilla lechuga = new SemillaLechuga("Semilla de lechuga", 3);
+                            semilla.Add(lechuga);
+
 
                             break;
+                        case 3:
+                            return;
 
                         default:
                             Console.WriteLine("Opción no válida. Por favor, elige 1 o 2 .");

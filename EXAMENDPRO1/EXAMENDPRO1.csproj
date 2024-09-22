@@ -52,6 +52,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Semilla.cs" />
+    <Compile Include="SemillaDePapa.cs" />
+    <Compile Include="SemillaLechuga.cs" />
     <Compile Include="SemillaManzana.cs" />
     <Compile Include="SemillaPlatano.cs" />
     <Compile Include="Vaca.cs" />

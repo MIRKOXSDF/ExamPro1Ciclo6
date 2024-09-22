@@ -9,15 +9,22 @@ namespace EXAMENDPRO1
     abstract class Semilla
     {
         public string nombre;
-        public int tiempoDeCrecimiento;
-        protected Semilla(string nombre, int tiempoDeCrecimiento)
+        public int tiempoCrecimiento;
+        public int crecimientoActual;
+
+        public Semilla(string nombre, int tiempoCrecimiento)
         {
             this.nombre = nombre;
-            this.tiempoDeCrecimiento = tiempoDeCrecimiento;
+            this.tiempoCrecimiento = tiempoCrecimiento;
+            this.crecimientoActual = 0;
         }
-        public abstract void Plantar(bool plantastes);
 
-        public abstract void RecolectarFruta();
+        public abstract void Cosechar();
+
+
+
+        public abstract void Crecer();
+     
 
 
 
