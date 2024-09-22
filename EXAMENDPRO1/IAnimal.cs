@@ -10,5 +10,7 @@ namespace EXAMENDPRO1
     {
         void Ordeñar();
         void RecibirCarne();
+
+        void Crecer();
     }
 }

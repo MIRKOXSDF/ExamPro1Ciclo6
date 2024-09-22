@@ -34,6 +34,7 @@ namespace EXAMENDPRO1
             }
         }
 
+
         public void AgregarProductoOrdeñado(string tipoProducto, int cantidad)
         {
             switch (tipoProducto)
@@ -41,7 +42,7 @@ namespace EXAMENDPRO1
                 case "Leche":
                     totalLecheVaca += cantidad;
                     break;
-                case "Huevos":
+                case "Huevo":
                     totalHuevosGallina += cantidad;
                     break;
                 default:

@@ -9,16 +9,10 @@ namespace EXAMENDPRO1
     class Gallina : Animal
     {
         public int cantidadDeCarneGallina=1;
-        Inventario inventario;
-        public Gallina(string name, string tipoOrdeñar) : base(name, tipoOrdeñar,3,0,1,"Carne de gallina",0)
+        public Gallina(string name, string tipoOrdeñar,Inventario inventario) : base(name, "Huevo",3,0,inventario,0,1)
         {
         }
 
-        public override void RecibirCarne()
-        {
-            Console.WriteLine($"{nombre} te dio {cantidadDeCarneGallina} de carne de gallina");
-            inventario.AgregarCarne("Carne de gallina", cantidadDeCarneGallina);
-
-        }
+      
     }
 }

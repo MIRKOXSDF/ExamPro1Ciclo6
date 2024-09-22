@@ -6,53 +6,39 @@ using System.Threading.Tasks;
 
 namespace EXAMENDPRO1
 {
-    class Animal : IAnimal
+    class Animal 
     {
         public string nombre;
         public int tiempoCrecimiento;
         public int reproduccionActual;
         public string tipoDeCantidadEmbutido;
         public string tipoOrdeñar;
-        public int cantidadOrdeñar;
-        public int cantidadDeCarne;
-        public int cantidad=0;
+        public int totalAlOrdeñar;
+        public int cantidadActualAlOrdeñar;
         Inventario inventario;
-        public Animal(string name,string tipoOrdeñar,int tiempoCrecimiento,int reproduccionActual,int cantidadOrdeñar, string tipoDeCantidadEmbutido,int cantidadDeCarne)
+        public Animal(string name, string tipoOrdeñar, int tiempoCrecimiento, int reproduccionActual,Inventario inventario,int totalAlOrdeñar,int cantidadActualAlOrdeñar)
         {
             this.nombre = name;
             this.tipoOrdeñar = tipoOrdeñar;
             this.tiempoCrecimiento = tiempoCrecimiento;
             this.reproduccionActual = reproduccionActual;
-            this.cantidadOrdeñar = cantidadOrdeñar;
-            this.tipoDeCantidadEmbutido = tipoDeCantidadEmbutido;
-            this.cantidadDeCarne = cantidadDeCarne;
-          
+            this.cantidadActualAlOrdeñar = cantidadActualAlOrdeñar;
+            this.totalAlOrdeñar = totalAlOrdeñar;
+            this.inventario = inventario;
         }
-        public void Crecer()
-        {
-            reproduccionActual++;
-            if ( reproduccionActual>= tiempoCrecimiento)
-            {
-                Console.WriteLine($"{nombre} ha crecido y ahora es adulto.");
-            }
-            else
-            {
-                Console.WriteLine($"{nombre} tiene {reproduccionActual} y necesita {tiempoCrecimiento} para ser eliminada");
-                Ordeñar();
-            }
-        }
-
-
+       
+       
         public void Ordeñar()
         {
-            Console.WriteLine($"Ordeñaste a {nombre} y obtuviste {cantidadOrdeñar} de {tipoOrdeñar}.");
-            inventario.AgregarProductoOrdeñado(tipoOrdeñar, cantidadOrdeñar);
+            reproduccionActual++;
+          
+
+            Console.WriteLine($"{nombre} te dio {cantidadActualAlOrdeñar} de {tipoOrdeñar}");
+            Console.WriteLine($"{nombre} tiene {reproduccionActual} y necesita {tiempoCrecimiento} para ser eliminada");
+        }
 
 
-        }
-        public virtual void RecibirCarne()
-        {
-        }
+
 
 
     }
