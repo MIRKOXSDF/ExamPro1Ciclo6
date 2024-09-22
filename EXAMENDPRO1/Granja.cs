@@ -16,6 +16,9 @@ namespace EXAMENDPRO1
 
         public void Game()
         {
+            animal = new List<Animal>();
+            semilla = new List<Semilla>();
+
             Console.WriteLine("Coloca el nombre del granjero : ");
             string nombre = Console.ReadLine();
             bool active = true;
@@ -57,9 +60,10 @@ namespace EXAMENDPRO1
             {
                 try
                 {
-                    Console.WriteLine("¿Qué te gustaría comprar?");
-                    Console.WriteLine("1. Semillas");
-                    Console.WriteLine("2. Animales");
+                    Console.WriteLine("¿Qué te gustaría hacer?");
+                    Console.WriteLine("1. Comprar semillas");
+                    Console.WriteLine("2. Comprar Animales");
+                    Console.WriteLine("3. Iniciar a trabajar");
 
                     int option = int.Parse(Console.ReadLine());
                     switch (option)
@@ -69,6 +73,14 @@ namespace EXAMENDPRO1
                             break;
                         case 2:
                             ComprarAnimal();
+                            break;
+                        case 3:
+                            if (semilla.Count == 0 && animal.Count==0)
+                            {
+                                Console.WriteLine("No hay ningúna semilla y animal comprada.");
+
+                            }
+                            IniciarTrabajar();
                             break;
                         default:
                             Console.WriteLine("Opción no válida. Por favor, elige 1 o 2 .");
@@ -85,9 +97,31 @@ namespace EXAMENDPRO1
             }
 
         }
+        private void IniciarTrabajar()
+        {
+            Console.WriteLine("¿Qué te gustaría hacer?");
+            Console.WriteLine("1. Sembrar semilla");
+            Console.WriteLine("2. Criar animales");
+            Console.WriteLine("3. Salir");
+
+            bool active = true;
+            int option = int.Parse(Console.ReadLine());
+            while(active)
+            {
+                switch(option)
+                {
+                    case 1:
+
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        return;
+                }
+            }
+        }
         private void ComprarAnimal()
         {
-            animal = new List<Animal>();
             bool active = true;
             while (active)
             {
@@ -105,14 +139,14 @@ namespace EXAMENDPRO1
                     {
                         case 1:
                             Console.WriteLine("Compraste una vaca");
-                            Console.WriteLine($"Gastastes {dinero-=30}");
+                            Console.WriteLine($"Gastastes $30 y ahora te queda ${dinero-=30} de dinero");
 
                             Animal vaca = new Vaca("Vaca", "Leche");
                             animal.Add(vaca);
                             break;
                         case 2:
                             Console.WriteLine("Compraste una gallina");
-                            Console.WriteLine($"Gastastes {dinero -= 10}");
+                            Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
 
                             Animal gallina = new Gallina("Gallina", "Pollo");
                             animal.Add(gallina);
@@ -120,7 +154,7 @@ namespace EXAMENDPRO1
                             break;
                         case 3:
                             Console.WriteLine("Compraste un cerdo");
-                            Console.WriteLine($"Gastastes {dinero -= 20}");
+                            Console.WriteLine($"Gastastes $20 y ahora te queda ${dinero -= 20} de dinero");
 
                             Animal cerdo = new Cerdo("Cerdo", "Hotdog");
                             animal.Add(cerdo);
@@ -164,7 +198,6 @@ namespace EXAMENDPRO1
         }
         private void ComprarSemilla()
         {
-            semilla = new List<Semilla>();
             bool active = true;
             while (active)
             {
@@ -195,14 +228,14 @@ namespace EXAMENDPRO1
                                 if (semillas != null)
                                 {
                                     i++;
-                                    Console.WriteLine($"{i}.Animal {semillas.nombre}");
+                                    Console.WriteLine($"{i}. {semillas.nombre}");
 
                                 }
 
                             }
                             break;
                         case 4:
-                            break;
+                            return;
 
                         default:
                             Console.WriteLine("Opción no válida. Por favor, elige 1 o 2 .");
@@ -226,6 +259,8 @@ namespace EXAMENDPRO1
                 Console.WriteLine("Escoge el tipo de semilla de fruta :");
                 Console.WriteLine("1. Semilla de platano");
                 Console.WriteLine("2. Semilla de manzana");
+                Console.WriteLine("3. Salir ");
+
                 int option = int.Parse(Console.ReadLine());
                 try
                 {
@@ -233,11 +268,20 @@ namespace EXAMENDPRO1
                     {
                         case 1:
                             Console.WriteLine("Compraste una semilla de platano");
+                            Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
+
+                            Semilla platano = new SemillaPlatano("Semilla de platano", 4);
+                            semilla.Add(platano);
                             break;
                         case 2:
                             Console.WriteLine("Compraste una semilla de manzana");
+                            Console.WriteLine($"Gastastes $5 y ahora te queda ${dinero -= 5} de dinero");
 
+                            Semilla manzana = new SemillaManzana("Semilla de manzana", 3);
+                            semilla.Add(manzana);
                             break;
+                        case 3:
+                            return;
 
                         default:
                             Console.WriteLine("Opción no válida. Por favor, elige 1 o 2 .");
