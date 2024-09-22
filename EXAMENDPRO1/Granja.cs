@@ -100,7 +100,6 @@ namespace EXAMENDPRO1
                     {
                         case 1:
                             Console.WriteLine("Compraste una vaca");
-                            Animal animal = new Vaca("Vaca", 1);
 
                             break;
                         case 2:

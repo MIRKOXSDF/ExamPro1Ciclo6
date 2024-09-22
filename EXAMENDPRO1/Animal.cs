@@ -10,23 +10,24 @@ namespace EXAMENDPRO1
     {
         public string nombre;
         public int cantidad;
-
-        public Animal(string name, int cantidad)
+        public string tipoOrdeñar;
+        public Animal(string name,string tipoOrdeñar)
         {
             this.nombre = name;
-            this.cantidad = cantidad;
+            this.tipoOrdeñar = tipoOrdeñar;
+          
         }
 
         public void Ordeñar()
         {
             if (cantidad > 0)
             {
-                Console.WriteLine($"Ordeñaste a {nombre} y obtuviste {cantidad} litros de leche.");
+                Console.WriteLine($"Ordeñaste a {nombre} y obtuviste {cantidad} de {tipoOrdeñar}");
 
             }
             else
             {
-                Console.WriteLine($"{nombre} no tiene leche disponible.");
+                Console.WriteLine($"{nombre} no tiene nada disponible");
 
             }
         }
