@@ -85,7 +85,7 @@ namespace EXAMENDPRO1
         }
         private void ComprarAnimal()
         {
-
+            animal = new List<Animal>();
             bool active = true;
             while (active)
             {
@@ -93,6 +93,9 @@ namespace EXAMENDPRO1
                 Console.WriteLine("1. Vaca");
                 Console.WriteLine("2. Gallina");
                 Console.WriteLine("3. Cerdo");
+                Console.WriteLine("4. Lista de Animales obtenidos : ");
+                Console.WriteLine("5. Salir ");
+
                 int option = int.Parse(Console.ReadLine());
                 try
                 {
@@ -100,16 +103,39 @@ namespace EXAMENDPRO1
                     {
                         case 1:
                             Console.WriteLine("Compraste una vaca");
-
+                            Animal vaca = new Vaca("Vaca", "Leche");
+                            animal.Add(vaca);
                             break;
                         case 2:
                             Console.WriteLine("Compraste una gallina");
+                            Animal gallina = new Gallina("Gallina", "Pollo");
+                            animal.Add(gallina);
 
                             break;
                         case 3:
                             Console.WriteLine("Compraste un cerdo");
-
+                            Animal cerdo = new Cerdo("Cerdo", "Hotdog");
+                            animal.Add(cerdo);
                             break;
+                        case 4:
+                            foreach (Animal animales in animal)
+                            {
+                                if(animales!=null)
+                                {
+                                    Console.WriteLine($"{animales.nombre}");
+
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"No hay ningun animal obtenido");
+
+                                }
+                            }
+                            break;
+                        case 5:
+                            return;
+
+                            
                         default:
                             Console.WriteLine("Opción no válida. Por favor, elige 1, 2 o 3.");
 
@@ -123,7 +149,7 @@ namespace EXAMENDPRO1
                 }
 
             }
-
+           
 
         }
         private void ComprarSemilla()
