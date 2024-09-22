@@ -9,7 +9,7 @@ namespace EXAMENDPRO1
     class Vaca : Animal 
     {
         
-        public Vaca(string name,string tipoOrdeñar,Inventario inventario) : base(name,"Leche",5,0,inventario,0,1)
+        public Vaca(string name) : base(name,"Leche",5,0,2,1)
         {
         }
        
