@@ -114,6 +114,7 @@ namespace EXAMENDPRO1
                         SembrarSemilla();
                         break;
                     case 2:
+                        CriarAnimales();
                         break;
                     case 3:
                         return;
@@ -122,6 +123,42 @@ namespace EXAMENDPRO1
         }
         private void SembrarSemilla()
         {
+          
+        }
+        private void CriarAnimales()
+        {
+            int opcion=0;
+            if (animal.Count == 0)
+            {
+                Console.WriteLine("No tienes animales que criar.");
+                return;
+            }
+
+            Console.WriteLine("Selecciona un animal para criar:");
+            for (int i = 0; i < animal.Count; i++)
+            {
+                Animal a = animal[i];
+                Console.WriteLine($"{i + 1}. {a.nombre} ");
+            }
+            try
+            {
+                opcion = int.Parse(Console.ReadLine()) - 1;
+
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Elige un numero entero");
+
+            }
+
+            Animal seleccion = animal[opcion];
+            seleccion.Crecer();
+            if (seleccion.reproduccionActual >= seleccion.tiempoCrecimiento)
+            {
+                Console.WriteLine($"{seleccion.nombre} ha completado su ciclo y ha sido eliminado.");
+                animal.RemoveAt(opcion); 
+            }
+
 
         }
         private void ComprarAnimal()
@@ -152,7 +189,7 @@ namespace EXAMENDPRO1
                             Console.WriteLine("Compraste una gallina");
                             Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
 
-                            Animal gallina = new Gallina("Gallina", "Pollo");
+                            Animal gallina = new Gallina("Gallina", "Huevo");
                             animal.Add(gallina);
 
                             break;

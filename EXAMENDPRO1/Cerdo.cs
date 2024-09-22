@@ -8,7 +8,7 @@ namespace EXAMENDPRO1
 {
     class Cerdo : Animal
     {
-        public Cerdo(string name, string tipoOrdeñar) : base(name, tipoOrdeñar)
+        public Cerdo(string name, string tipoOrdeñar) : base(name, tipoOrdeñar,4,0,1,"Carne de cerdo")
         {
         }
     }
