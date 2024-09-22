@@ -14,8 +14,10 @@ namespace EXAMENDPRO1
         public string tipoDeCantidadEmbutido;
         public string tipoOrdeñar;
         public int cantidadOrdeñar;
+        public int cantidadDeCarne;
         public int cantidad=0;
-        public Animal(string name,string tipoOrdeñar,int tiempoCrecimiento,int reproduccionActual,int cantidadOrdeñar, string tipoDeCantidadEmbutido)
+        Inventario inventario;
+        public Animal(string name,string tipoOrdeñar,int tiempoCrecimiento,int reproduccionActual,int cantidadOrdeñar, string tipoDeCantidadEmbutido,int cantidadDeCarne)
         {
             this.nombre = name;
             this.tipoOrdeñar = tipoOrdeñar;
@@ -23,6 +25,7 @@ namespace EXAMENDPRO1
             this.reproduccionActual = reproduccionActual;
             this.cantidadOrdeñar = cantidadOrdeñar;
             this.tipoDeCantidadEmbutido = tipoDeCantidadEmbutido;
+            this.cantidadDeCarne = cantidadDeCarne;
           
         }
         public void Crecer()
@@ -31,7 +34,6 @@ namespace EXAMENDPRO1
             if ( reproduccionActual>= tiempoCrecimiento)
             {
                 Console.WriteLine($"{nombre} ha crecido y ahora es adulto.");
-                AnimalMuere();
             }
             else
             {
@@ -43,14 +45,15 @@ namespace EXAMENDPRO1
 
         public void Ordeñar()
         {
-            Console.WriteLine($"Ordeñaste a {nombre} y obtuviste {cantidad+=cantidadOrdeñar} de {tipoOrdeñar}");
+            Console.WriteLine($"Ordeñaste a {nombre} y obtuviste {cantidadOrdeñar} de {tipoOrdeñar}.");
+            inventario.AgregarProductoOrdeñado(tipoOrdeñar, cantidadOrdeñar);
 
-         
+
         }
-        public void AnimalMuere()
+        public virtual void RecibirCarne()
         {
-            Console.WriteLine($"Eliminastes {nombre} y ahora este te dio {tipoDeCantidadEmbutido}");
-
         }
+
+
     }
 }

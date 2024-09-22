@@ -9,5 +9,6 @@ namespace EXAMENDPRO1
     interface IAnimal
     {
         void Ordeñar();
+        void RecibirCarne();
     }
 }

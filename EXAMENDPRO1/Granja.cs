@@ -156,6 +156,7 @@ namespace EXAMENDPRO1
             if (seleccion.reproduccionActual >= seleccion.tiempoCrecimiento)
             {
                 Console.WriteLine($"{seleccion.nombre} ha completado su ciclo y ha sido eliminado.");
+                seleccion.RecibirCarne();
                 animal.RemoveAt(opcion); 
             }
 

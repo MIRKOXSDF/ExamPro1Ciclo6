@@ -49,6 +49,7 @@
     <Compile Include="Granja.cs" />
     <Compile Include="IAnimal.cs" />
     <Compile Include="Granjero.cs" />
+    <Compile Include="Inventario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Semilla.cs" />
