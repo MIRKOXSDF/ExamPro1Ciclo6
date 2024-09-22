@@ -111,7 +111,7 @@ namespace EXAMENDPRO1
                 switch(option)
                 {
                     case 1:
-
+                        SembrarSemilla();
                         break;
                     case 2:
                         break;
@@ -119,6 +119,10 @@ namespace EXAMENDPRO1
                         return;
                 }
             }
+        }
+        private void SembrarSemilla()
+        {
+
         }
         private void ComprarAnimal()
         {
