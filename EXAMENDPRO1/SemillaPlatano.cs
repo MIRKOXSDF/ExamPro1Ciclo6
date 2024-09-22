@@ -18,7 +18,7 @@ namespace EXAMENDPRO1
         {
             if (plantastes)
             {
-                Console.WriteLine($"Has plantado una semilla.");
+                Console.WriteLine($"Has plantado una semilla de platano.");
 
             }
             else
