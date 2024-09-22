@@ -9,6 +9,8 @@ namespace EXAMENDPRO1
     class Granja
     {
         List<Animal> animal;
+        List<Semilla> semilla;
+
         Granjero granjero;
         float dinero;
 
@@ -103,33 +105,41 @@ namespace EXAMENDPRO1
                     {
                         case 1:
                             Console.WriteLine("Compraste una vaca");
+                            Console.WriteLine($"Gastastes {dinero-=30}");
+
                             Animal vaca = new Vaca("Vaca", "Leche");
                             animal.Add(vaca);
                             break;
                         case 2:
                             Console.WriteLine("Compraste una gallina");
+                            Console.WriteLine($"Gastastes {dinero -= 10}");
+
                             Animal gallina = new Gallina("Gallina", "Pollo");
                             animal.Add(gallina);
 
                             break;
                         case 3:
                             Console.WriteLine("Compraste un cerdo");
+                            Console.WriteLine($"Gastastes {dinero -= 20}");
+
                             Animal cerdo = new Cerdo("Cerdo", "Hotdog");
                             animal.Add(cerdo);
                             break;
                         case 4:
+                            if (animal.Count == 0)
+                            {
+                                Console.WriteLine("No hay ningún animal comprado.");
+                            }
+                            int i = 0;
                             foreach (Animal animales in animal)
                             {
                                 if(animales!=null)
                                 {
-                                    Console.WriteLine($"{animales.nombre}");
+                                    i++;
+                                    Console.WriteLine($"{i}.Animal {animales.nombre}");
 
                                 }
-                                else
-                                {
-                                    Console.WriteLine($"No hay ningun animal obtenido");
-
-                                }
+                                
                             }
                             break;
                         case 5:
@@ -154,12 +164,15 @@ namespace EXAMENDPRO1
         }
         private void ComprarSemilla()
         {
+            semilla = new List<Semilla>();
             bool active = true;
             while (active)
             {
                 Console.WriteLine("Escoge tu tipo de semilla :");
                 Console.WriteLine("1. Semilla de frutas");
                 Console.WriteLine("2. Semilla de verduras");
+                Console.WriteLine("3. Lista de Animales obtenidos : ");
+                Console.WriteLine("4. Salir ");
                 int option = int.Parse(Console.ReadLine());
                 try
                 {
@@ -170,6 +183,25 @@ namespace EXAMENDPRO1
                             break;
                         case 2:
                             TiposDeSemillaVerdura();
+                            break;
+                        case 3:
+                            if (semilla.Count == 0)
+                            {
+                                Console.WriteLine("No hay ningúna semilla comprada.");
+                            }
+                            int i = 0;
+                            foreach (Semilla semillas in semilla)
+                            {
+                                if (semillas != null)
+                                {
+                                    i++;
+                                    Console.WriteLine($"{i}.Animal {semillas.nombre}");
+
+                                }
+
+                            }
+                            break;
+                        case 4:
                             break;
 
                         default:
@@ -201,7 +233,6 @@ namespace EXAMENDPRO1
                     {
                         case 1:
                             Console.WriteLine("Compraste una semilla de platano");
-
                             break;
                         case 2:
                             Console.WriteLine("Compraste una semilla de manzana");
