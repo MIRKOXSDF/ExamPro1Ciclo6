@@ -9,7 +9,7 @@ namespace EXAMENDPRO1
     class Gallina : Animal
     {
      
-        public Gallina(string name,Inventario inventario) : base(name, "huevo",3,0,1,1,inventario)
+        public Gallina(string name,Inventario inventario) : base(name, "huevo",3,0,1,1,inventario,"carne de gallina")
         {
         }
 

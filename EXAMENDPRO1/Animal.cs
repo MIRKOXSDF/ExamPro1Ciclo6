@@ -16,10 +16,10 @@ namespace EXAMENDPRO1
         public int cantidadActualAlOrdeñar;
         public int cantidadCarne;
         public int totalOrdeñado;
-        private Inventario inventario; 
-
+        private Inventario inventario;
+        public string tipoCarne;
        
-        public Animal(string nombre, string tipoOrdeñar, int tiempoCrecimiento, int totalAlOrdeñar, int cantidadActualAlOrdeñar, int cantidadCarne, Inventario inventario)
+        public Animal(string nombre, string tipoOrdeñar, int tiempoCrecimiento, int totalAlOrdeñar, int cantidadActualAlOrdeñar, int cantidadCarne, Inventario inventario,string tipoCarne)
         {
             this.nombre = nombre;
             this.tipoOrdeñar = tipoOrdeñar;
@@ -29,7 +29,8 @@ namespace EXAMENDPRO1
             this.cantidadActualAlOrdeñar = cantidadActualAlOrdeñar;
             this.cantidadCarne = cantidadCarne;
             this.totalOrdeñado = 0;
-            this.inventario = inventario; 
+            this.inventario = inventario;
+            this.tipoCarne = tipoCarne;
         }
 
         public void Ordeñar()
@@ -47,7 +48,7 @@ namespace EXAMENDPRO1
             if (inventario != null) 
             {
                 inventario.AgregarProducto(tipoOrdeñar, totalOrdeñado); 
-                inventario.AgregarProducto("carne", cantidadCarne); 
+                inventario.AgregarProducto(tipoCarne, cantidadCarne); 
             }
             else
             {

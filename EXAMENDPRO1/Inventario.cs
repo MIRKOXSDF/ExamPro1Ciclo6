@@ -15,9 +15,14 @@ namespace EXAMENDPRO1
         public int cantidadLeche { get; set; }
         public int cantidadHuevo { get; set; }
 
-        public int cantidadCarneCerdo { get; set; }
+        public int cantidadCerdo { get; set; }
         public int cantidadGallina { get; set; }
         public int cantidadVaca { get; set; }
+
+        public int cantidadCarneCerdo { get; set; }
+        public int cantidadCarneGallina { get; set; }
+        public int cantidadCarneRes { get; set; }
+
 
         public Inventario()
         {
@@ -26,9 +31,12 @@ namespace EXAMENDPRO1
             cantidadPlatano = 0;
             cantidadManzana = 0;
             cantidadLeche = 0;
-            cantidadCarneCerdo = 0;
+            cantidadCerdo = 0;
             cantidadGallina = 0;
             cantidadVaca = 0;
+            cantidadCarneCerdo = 0;
+            cantidadCarneGallina = 0;
+            cantidadCarneRes = 0;
         }
 
         public void AgregarProducto(string producto, int cantidad)
@@ -51,10 +59,19 @@ namespace EXAMENDPRO1
                     cantidadLeche += cantidad;
                     break;
                 case "hot Dog":
-                    cantidadCarneCerdo += cantidad;
+                    cantidadCerdo += cantidad;
                     break;
                 case "huevo":
                     cantidadHuevo += cantidad;
+                    break;
+                case "carne de res":
+                    cantidadCarneRes += cantidad;
+                    break;
+                case "carne de gallina":
+                    cantidadCarneGallina += cantidad;
+                    break;
+                case "lechon":
+                    cantidadCarneCerdo += cantidad;
                     break;
 
                 default:
@@ -71,8 +88,12 @@ namespace EXAMENDPRO1
             Console.WriteLine($"Plátanos: {cantidadPlatano}");
             Console.WriteLine($"Manzanas: {cantidadManzana}");
             Console.WriteLine($"Leche: {cantidadLeche}");
+            Console.WriteLine($"Hot Dog: {cantidadCerdo}");
+            Console.WriteLine($"Huevos: {cantidadHuevo}");
             Console.WriteLine($"Carne de cerdo: {cantidadCarneCerdo}");
-            Console.WriteLine($"Gallinas: {cantidadHuevo}");
+            Console.WriteLine($"Carne de Gallina: {cantidadCarneGallina}");
+            Console.WriteLine($"Carne de Vaca: {cantidadCarneRes}");
+
         }
     }
 }
