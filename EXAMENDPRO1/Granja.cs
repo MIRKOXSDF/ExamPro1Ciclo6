@@ -168,6 +168,7 @@ namespace EXAMENDPRO1
                 if (seleccion.crecimientoActual >= seleccion.tiempoCrecimiento)
                 {
                     semilla.RemoveAt(opcion);
+                    VerificarVictoria(); 
 
                 }
             }
@@ -200,7 +201,9 @@ namespace EXAMENDPRO1
                 if (seleccion.reproduccionActual >= seleccion.tiempoCrecimiento)
                 {
                     seleccion.EliminarAnimal();
-                    animal.RemoveAt(opcion); 
+                    animal.RemoveAt(opcion);
+                    VerificarVictoria();
+
                 }
                 else
                 {
@@ -435,6 +438,16 @@ namespace EXAMENDPRO1
                     Console.WriteLine("Elige un numero entero");
 
                 }
+
+            }
+        }
+        private void VerificarVictoria()
+        {
+            if (animal.Count == 0 && semilla.Count == 0)
+            {
+                Console.WriteLine("¡Has ganado! No te queda ninguna semilla o animal vivo.");
+                Environment.Exit(0);
+
 
             }
         }
