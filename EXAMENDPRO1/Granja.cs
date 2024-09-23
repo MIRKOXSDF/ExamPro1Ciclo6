@@ -235,14 +235,14 @@ namespace EXAMENDPRO1
                             Console.WriteLine("Compraste una vaca");
                             Console.WriteLine($"Gastastes $30 y ahora te queda ${dinero -= 30} de dinero");
 
-                            Animal vaca = new Vaca("Vaca");
+                            Animal vaca = new Vaca("Vaca",inventario);
                             animal.Add(vaca);
                             break;
                         case 2:
                             Console.WriteLine("Compraste una gallina");
                             Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
 
-                            Animal gallina = new Gallina("Gallina");
+                            Animal gallina = new Gallina("Gallina",inventario);
                             animal.Add(gallina);
 
                             break;
@@ -250,7 +250,7 @@ namespace EXAMENDPRO1
                             Console.WriteLine("Compraste un cerdo");
                             Console.WriteLine($"Gastastes $20 y ahora te queda ${dinero -= 20} de dinero");
 
-                            Animal cerdo = new Cerdo("Cerdo");
+                            Animal cerdo = new Cerdo("Cerdo",inventario);
                             animal.Add(cerdo);
                             break;
                         case 4:
@@ -364,14 +364,14 @@ namespace EXAMENDPRO1
                             Console.WriteLine("Compraste una semilla de platano");
                             Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
 
-                            SemillaPlatano platano = new SemillaPlatano("Semilla de platano", 4,inventario);
+                            Semilla platano = new SemillaPlatano("Semilla de platano", 4,inventario);
                             semilla.Add(platano);
                             break;
                         case 2:
                             Console.WriteLine("Compraste una semilla de manzana");
                             Console.WriteLine($"Gastastes $5 y ahora te queda ${dinero -= 5} de dinero");
 
-                            SemillaManzana manzana = new SemillaManzana("Semilla de manzana", 3,inventario);
+                            Semilla manzana = new SemillaManzana("Semilla de manzana", 3,inventario);
                             semilla.Add(manzana);
                             break;
                         case 3:
@@ -409,14 +409,14 @@ namespace EXAMENDPRO1
                         case 1:
                             Console.WriteLine("Compraste una semilla de papa");
                             Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 20} de dinero");
-                            Semilla papa = new SemillaDePapa("Semilla de papa", 5);
+                            Semilla papa = new SemillaDePapa("Semilla de papa", 5,inventario);
                             semilla.Add(papa);
 
                             break;
                         case 2:
                             Console.WriteLine("Compraste una semilla de lechuga");
                             Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
-                            Semilla lechuga = new SemillaLechuga("Semilla de lechuga", 3);
+                            Semilla lechuga = new SemillaLechuga("Semilla de lechuga", 3,inventario);
                             semilla.Add(lechuga);
 
 

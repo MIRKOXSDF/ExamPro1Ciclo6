@@ -8,8 +8,8 @@ namespace EXAMENDPRO1
 {
     class Vaca : Animal 
     {
-        
-        public Vaca(string name) : base(name,"Leche",5,0,2,1)
+       
+        public Vaca(string name,Inventario inventario) : base(name,"leche",5,0,2,1,inventario)
         {
         }
        

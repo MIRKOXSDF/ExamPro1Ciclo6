@@ -47,13 +47,13 @@ namespace EXAMENDPRO1
                 case "manzana":
                     cantidadManzana += cantidad;
                     break;
-                case "Leche":
+                case "leche":
                     cantidadLeche += cantidad;
                     break;
-                case "Hot Dog":
+                case "hot Dog":
                     cantidadCarneCerdo += cantidad;
                     break;
-                case "Huevo":
+                case "huevo":
                     cantidadHuevo += cantidad;
                     break;
 

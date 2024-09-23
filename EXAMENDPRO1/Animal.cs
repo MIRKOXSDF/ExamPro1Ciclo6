@@ -12,12 +12,14 @@ namespace EXAMENDPRO1
         public int tiempoCrecimiento;
         public int reproduccionActual;
         public string tipoOrdeñar;
-        public int totalAlOrdeñar; 
-        public int cantidadActualAlOrdeñar; 
-        public int cantidadCarne; 
+        public int totalAlOrdeñar;
+        public int cantidadActualAlOrdeñar;
+        public int cantidadCarne;
         public int totalOrdeñado;
-        Inventario inventario;
-        public Animal(string nombre, string tipoOrdeñar, int tiempoCrecimiento, int totalAlOrdeñar, int cantidadActualAlOrdeñar, int cantidadCarne)
+        private Inventario inventario; 
+
+       
+        public Animal(string nombre, string tipoOrdeñar, int tiempoCrecimiento, int totalAlOrdeñar, int cantidadActualAlOrdeñar, int cantidadCarne, Inventario inventario)
         {
             this.nombre = nombre;
             this.tipoOrdeñar = tipoOrdeñar;
@@ -27,8 +29,8 @@ namespace EXAMENDPRO1
             this.cantidadActualAlOrdeñar = cantidadActualAlOrdeñar;
             this.cantidadCarne = cantidadCarne;
             this.totalOrdeñado = 0;
+            this.inventario = inventario; 
         }
-
 
         public void Ordeñar()
         {
@@ -38,12 +40,18 @@ namespace EXAMENDPRO1
             Console.WriteLine($"{nombre} te dio {cantidadActualAlOrdeñar} de {tipoOrdeñar}");
             Console.WriteLine($"{nombre} ha producido {reproduccionActual} veces y necesita {tiempoCrecimiento} para ser eliminado.");
         }
+
         public void EliminarAnimal()
         {
-            if(inventario!=null)
+            
+            if (inventario != null) 
             {
-                inventario.AgregarProducto(tipoOrdeñar, cantidadActualAlOrdeñar);
-
+                inventario.AgregarProducto(tipoOrdeñar, totalOrdeñado); 
+                inventario.AgregarProducto("carne", cantidadCarne); 
+            }
+            else
+            {
+                Console.WriteLine("Inventario no inicializado.");
             }
 
             Console.WriteLine($"{nombre} te dio un total de {totalOrdeñado} de {tipoOrdeñar} durante su ciclo de vida.");
