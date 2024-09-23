@@ -15,8 +15,8 @@ namespace EXAMENDPRO1
         public int totalAlOrdeñar; 
         public int cantidadActualAlOrdeñar; 
         public int cantidadCarne; 
-        public int totalOrdeñado; 
-
+        public int totalOrdeñado;
+        Inventario inventario;
         public Animal(string nombre, string tipoOrdeñar, int tiempoCrecimiento, int totalAlOrdeñar, int cantidadActualAlOrdeñar, int cantidadCarne)
         {
             this.nombre = nombre;
@@ -40,6 +40,12 @@ namespace EXAMENDPRO1
         }
         public void EliminarAnimal()
         {
+            if(inventario!=null)
+            {
+                inventario.AgregarProducto(tipoOrdeñar, cantidadActualAlOrdeñar);
+
+            }
+
             Console.WriteLine($"{nombre} te dio un total de {totalOrdeñado} de {tipoOrdeñar} durante su ciclo de vida.");
             Console.WriteLine($"Además, al eliminar a {nombre}, obtuviste {cantidadCarne} de carne.");
         }

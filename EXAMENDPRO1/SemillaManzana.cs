@@ -8,30 +8,33 @@ namespace EXAMENDPRO1
 {
     class SemillaManzana : Semilla
     {
-        public int cantidadManzanas;
+        private Inventario inventario;
+        public int cantidadManzana;
 
-        public SemillaManzana(string nombre, int tiempoCrecimiento) : base(nombre, tiempoCrecimiento)
+        public SemillaManzana(string nombre, int tiempoCrecimiento,Inventario inventario) : base(nombre, tiempoCrecimiento)
         {
-            cantidadManzanas = 5;
+            this.inventario = inventario;
+            cantidadManzana = 4;
         }
 
         public override void Cosechar()
         {
             if (crecimientoActual >= tiempoCrecimiento)
             {
-                Console.WriteLine($"¡Has cosechado {cantidadManzanas} manzanas!");
-                crecimientoActual = 0; 
+                Console.WriteLine($"¡Has cosechado {cantidadManzana} manzanas!");
+                inventario.AgregarProducto("manzana", cantidadManzana); 
+                crecimientoActual = 0;
             }
             else
             {
-                Console.WriteLine($"La manzana aún no está lista. Faltan {tiempoCrecimiento - crecimientoActual} turnos para cosechar.");
+                Console.WriteLine($"La manzana aún no está listo. Faltan {tiempoCrecimiento - crecimientoActual} turnos para cosechar.");
             }
         }
 
         public override void Crecer()
         {
             crecimientoActual++;
-            Console.WriteLine($"La semilla de manzana ha sido0 plantado. Estado actual: {crecimientoActual}/{tiempoCrecimiento}.");
+            Console.WriteLine($"La semilla de manzana ha sido plantada. Estado actual: {crecimientoActual}/{tiempoCrecimiento}.");
         }
     }
 }

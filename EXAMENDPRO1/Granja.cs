@@ -13,11 +13,12 @@ namespace EXAMENDPRO1
 
         Granjero granjero;
         float dinero;
+        Inventario inventario;
         public void Game()
         {
             animal = new List<Animal>();
             semilla = new List<Semilla>();
-
+            inventario = new Inventario();
             Console.WriteLine("Coloca el nombre del granjero : ");
             string nombre = Console.ReadLine();
             bool active = true;
@@ -54,6 +55,7 @@ namespace EXAMENDPRO1
 
         public void ComprarObjetos()
         {
+
             bool active = true;
             while (active)
             {
@@ -63,7 +65,7 @@ namespace EXAMENDPRO1
                     Console.WriteLine("1. Comprar semillas");
                     Console.WriteLine("2. Comprar Animales");
                     Console.WriteLine("3. Iniciar a trabajar");
-
+                    Console.WriteLine("4. Ver Inventario");
                     int option = int.Parse(Console.ReadLine());
                     switch (option)
                     {
@@ -80,6 +82,13 @@ namespace EXAMENDPRO1
 
                             }
                             IniciarTrabajar();
+                            break;
+                        case 4:
+                            if(inventario!=null)
+                            {
+                                inventario.MostrarInventario();
+
+                            }
                             break;
                         default:
                             Console.WriteLine("Opción no válida. Por favor, elige 1 o 2 .");
@@ -156,9 +165,8 @@ namespace EXAMENDPRO1
 
                 seleccion.Crecer();   
                 seleccion.Cosechar();
-                if (seleccion.crecimientoActual > seleccion.tiempoCrecimiento)
+                if (seleccion.crecimientoActual >= seleccion.tiempoCrecimiento)
                 {
-
                     semilla.RemoveAt(opcion);
 
                 }
@@ -356,14 +364,14 @@ namespace EXAMENDPRO1
                             Console.WriteLine("Compraste una semilla de platano");
                             Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
 
-                            Semilla platano = new SemillaPlatano("Semilla de platano", 4);
+                            SemillaPlatano platano = new SemillaPlatano("Semilla de platano", 4,inventario);
                             semilla.Add(platano);
                             break;
                         case 2:
                             Console.WriteLine("Compraste una semilla de manzana");
                             Console.WriteLine($"Gastastes $5 y ahora te queda ${dinero -= 5} de dinero");
 
-                            Semilla manzana = new SemillaManzana("Semilla de manzana", 3);
+                            SemillaManzana manzana = new SemillaManzana("Semilla de manzana", 3,inventario);
                             semilla.Add(manzana);
                             break;
                         case 3:

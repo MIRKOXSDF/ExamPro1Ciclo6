@@ -9,6 +9,7 @@ namespace EXAMENDPRO1
     class SemillaDePapa :Semilla
     {
         public int cantidadPapas;
+        Inventario inventario;
 
         public SemillaDePapa(string nombre, int tiempoCrecimiento) : base(nombre, tiempoCrecimiento)
         {
@@ -21,7 +22,11 @@ namespace EXAMENDPRO1
             if (crecimientoActual >= tiempoCrecimiento)
             {
                 Console.WriteLine($"¡Has cosechado {cantidadPapas} papas!");
+                if(inventario!=null)
+                {
+                    inventario.AgregarProducto("Papa", cantidadPapas);
 
+                }
                 crecimientoActual = 0;
             }
             else

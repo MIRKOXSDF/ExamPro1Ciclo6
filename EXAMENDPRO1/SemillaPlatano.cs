@@ -8,19 +8,23 @@ namespace EXAMENDPRO1
 {
     class SemillaPlatano : Semilla
     {
+        private Inventario inventario;
         public int cantidadPlatano;
 
-        public SemillaPlatano(string nombre, int tiempoCrecimiento) : base(nombre, tiempoCrecimiento)
+        
+        public SemillaPlatano(string nombre, int tiempoCrecimiento, Inventario inventario) : base(nombre, tiempoCrecimiento)
         {
-            cantidadPlatano = 4;
+            this.inventario = inventario; 
+            cantidadPlatano = 4; 
         }
 
         public override void Cosechar()
         {
             if (crecimientoActual >= tiempoCrecimiento)
             {
-                Console.WriteLine($"¡Has cosechado {cantidadPlatano} platanos!");
-                crecimientoActual = 0; 
+                Console.WriteLine($"¡Has cosechado {cantidadPlatano} plátanos!");
+                inventario.AgregarProducto("platano", cantidadPlatano); 
+                crecimientoActual = 0;
             }
             else
             {
@@ -31,8 +35,7 @@ namespace EXAMENDPRO1
         public override void Crecer()
         {
             crecimientoActual++;
-            Console.WriteLine($"La semilla de plátano ha sido plantado. Estado actual: {crecimientoActual}/{tiempoCrecimiento}.");
-            
+            Console.WriteLine($"La semilla de plátano ha sido plantada. Estado actual: {crecimientoActual}/{tiempoCrecimiento}.");
         }
     }
 }

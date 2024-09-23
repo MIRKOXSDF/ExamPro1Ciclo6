@@ -9,7 +9,7 @@ namespace EXAMENDPRO1
     class SemillaLechuga : Semilla
     {
         public int cantidadLechugas;
-
+        Inventario inventario;
         public SemillaLechuga(string nombre, int tiempoCrecimiento) : base(nombre, tiempoCrecimiento)
         {
             cantidadLechugas = 3; 
@@ -21,6 +21,8 @@ namespace EXAMENDPRO1
             if (crecimientoActual >= tiempoCrecimiento)
             {
                 Console.WriteLine($"¡Has cosechado {cantidadLechugas} lechugas!");
+                inventario.AgregarProducto("Lechuga", cantidadLechugas);
+
                 crecimientoActual = 0;
             }
             else
