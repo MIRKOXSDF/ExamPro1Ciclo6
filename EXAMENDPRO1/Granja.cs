@@ -29,11 +29,13 @@ namespace EXAMENDPRO1
                 {
                     Console.WriteLine("Coloca la cantidad de dinero : ");
                     dinero = float.Parse(Console.ReadLine());
-                    if (dinero < 0)
+                    if (dinero < 100)
                     {
-                        Console.WriteLine("Entrada no válida.El numero debe ser positivo");
+                        
+                        Console.WriteLine("Entrada no válida.El numero debe ser positivo o mayor a 100");
                         continue;
                     }
+                   
                     active = false;
 
                 }
@@ -223,9 +225,9 @@ namespace EXAMENDPRO1
             while (active)
             {
                 Console.WriteLine("Escoge tu animal :");
-                Console.WriteLine("1. Vaca");
-                Console.WriteLine("2. Gallina");
-                Console.WriteLine("3. Cerdo");
+                Console.WriteLine("1. Vaca ($30)");
+                Console.WriteLine("2. Gallina ($10)");
+                Console.WriteLine("3. Cerdo ($20)");
                 Console.WriteLine("4. Lista de Animales obtenidos : ");
                 Console.WriteLine("5. Salir ");
 
@@ -235,26 +237,52 @@ namespace EXAMENDPRO1
                     switch (option)
                     {
                         case 1:
-                            Console.WriteLine("Compraste una vaca");
-                            Console.WriteLine($"Gastastes $30 y ahora te queda ${dinero -= 30} de dinero");
+                            if(dinero>=30)
+                            {
+                                Console.WriteLine("Compraste una vaca");
+                                Console.WriteLine($"Gastastes $30 y ahora te queda ${dinero -= 30} de dinero");
 
-                            Animal vaca = new Vaca("Vaca",inventario);
-                            animal.Add(vaca);
+                                Animal vaca = new Vaca("Vaca", inventario);
+                                animal.Add(vaca);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No tienes suficiente dinero.");
+                                VerificarPerdida();
+                            }
+
                             break;
                         case 2:
-                            Console.WriteLine("Compraste una gallina");
-                            Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
+                            if(dinero>=10)
+                            {
+                                Console.WriteLine("Compraste una gallina");
+                                Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
 
-                            Animal gallina = new Gallina("Gallina",inventario);
-                            animal.Add(gallina);
+                                Animal gallina = new Gallina("Gallina", inventario);
+                                animal.Add(gallina);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No tienes suficiente dinero.");
+                                VerificarPerdida();
+                            }
+
 
                             break;
                         case 3:
-                            Console.WriteLine("Compraste un cerdo");
-                            Console.WriteLine($"Gastastes $20 y ahora te queda ${dinero -= 20} de dinero");
+                            if(dinero>=20)
+                            {
+                                Console.WriteLine("Compraste un cerdo");
+                                Console.WriteLine($"Gastastes $20 y ahora te queda ${dinero -= 20} de dinero");
 
-                            Animal cerdo = new Cerdo("Cerdo",inventario);
-                            animal.Add(cerdo);
+                                Animal cerdo = new Cerdo("Cerdo", inventario);
+                                animal.Add(cerdo);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No tienes suficiente dinero.");
+                                VerificarPerdida();
+                            }
                             break;
                         case 4:
                             if (animal.Count == 0)
@@ -354,8 +382,8 @@ namespace EXAMENDPRO1
             while (active)
             {
                 Console.WriteLine("Escoge el tipo de semilla de fruta :");
-                Console.WriteLine("1. Semilla de platano");
-                Console.WriteLine("2. Semilla de manzana");
+                Console.WriteLine("1. Semilla de platano ($10)");
+                Console.WriteLine("2. Semilla de manzana ($5)");
                 Console.WriteLine("3. Salir ");
 
                 int option = int.Parse(Console.ReadLine());
@@ -364,18 +392,36 @@ namespace EXAMENDPRO1
                     switch (option)
                     {
                         case 1:
-                            Console.WriteLine("Compraste una semilla de platano");
-                            Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
+                            if(dinero>=10)
+                            {
+                                Console.WriteLine("Compraste una semilla de platano");
+                                Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
 
-                            Semilla platano = new SemillaPlatano("Semilla de platano", 4,inventario);
-                            semilla.Add(platano);
+                                Semilla platano = new SemillaPlatano("Semilla de platano", 4, inventario);
+                                semilla.Add(platano);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No tienes suficiente dinero.");
+                                VerificarPerdida();
+                            }
+
                             break;
                         case 2:
-                            Console.WriteLine("Compraste una semilla de manzana");
-                            Console.WriteLine($"Gastastes $5 y ahora te queda ${dinero -= 5} de dinero");
+                            if(dinero>=5)
+                            {
+                                Console.WriteLine("Compraste una semilla de manzana");
+                                Console.WriteLine($"Gastastes $5 y ahora te queda ${dinero -= 5} de dinero");
 
-                            Semilla manzana = new SemillaManzana("Semilla de manzana", 3,inventario);
-                            semilla.Add(manzana);
+                                Semilla manzana = new SemillaManzana("Semilla de manzana", 3, inventario);
+                                semilla.Add(manzana);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No tienes suficiente dinero.");
+                                VerificarPerdida();
+                            }
+
                             break;
                         case 3:
                             return;
@@ -400,8 +446,8 @@ namespace EXAMENDPRO1
             while (active)
             {
                 Console.WriteLine("Escoge el tipo de semilla de verdura :");
-                Console.WriteLine("1. Semilla de papa");
-                Console.WriteLine("2. Semilla de lechuga");
+                Console.WriteLine("1. Semilla de papa ($20)");
+                Console.WriteLine("2. Semilla de lechuga ($10)");
                 Console.WriteLine("3. Salir ");
 
                 int option = int.Parse(Console.ReadLine());
@@ -410,17 +456,35 @@ namespace EXAMENDPRO1
                     switch (option)
                     {
                         case 1:
-                            Console.WriteLine("Compraste una semilla de papa");
-                            Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 20} de dinero");
-                            Semilla papa = new SemillaDePapa("Semilla de papa", 5,inventario);
-                            semilla.Add(papa);
+                            if(dinero>=20)
+                            {
+                                Console.WriteLine("Compraste una semilla de papa");
+                                Console.WriteLine($"Gastastes $20 y ahora te queda ${dinero -= 20} de dinero");
+                                Semilla papa = new SemillaDePapa("Semilla de papa", 5, inventario);
+                                semilla.Add(papa);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No tienes suficiente dinero.");
+                                VerificarPerdida();
+                            }
+
 
                             break;
                         case 2:
-                            Console.WriteLine("Compraste una semilla de lechuga");
-                            Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
-                            Semilla lechuga = new SemillaLechuga("Semilla de lechuga", 3,inventario);
-                            semilla.Add(lechuga);
+                            if(dinero>=10)
+                            {
+                                Console.WriteLine("Compraste una semilla de lechuga");
+                                Console.WriteLine($"Gastastes $10 y ahora te queda ${dinero -= 10} de dinero");
+                                Semilla lechuga = new SemillaLechuga("Semilla de lechuga", 3, inventario);
+                                semilla.Add(lechuga);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No tienes suficiente dinero.");
+                                VerificarPerdida();
+                            }
+
 
 
                             break;
@@ -449,6 +513,14 @@ namespace EXAMENDPRO1
                 Environment.Exit(0);
 
 
+            }
+        }
+        private void VerificarPerdida()
+        {
+            if (dinero < 5)
+            {
+                Console.WriteLine("¡Has perdido! No te queda dinero.");
+                Environment.Exit(0); 
             }
         }
     }
