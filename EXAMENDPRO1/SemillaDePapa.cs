@@ -29,7 +29,6 @@ namespace EXAMENDPRO1
                 
 
                 
-                crecimientoActual = 0;
             }
             else
             {

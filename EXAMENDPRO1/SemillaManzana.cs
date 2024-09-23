@@ -23,7 +23,6 @@ namespace EXAMENDPRO1
             {
                 Console.WriteLine($"¡Has cosechado {cantidadManzana} manzanas!");
                 inventario.AgregarProducto("manzana", cantidadManzana); 
-                crecimientoActual = 0;
             }
             else
             {
