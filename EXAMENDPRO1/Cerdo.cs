@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace EXAMENDPRO1
 {
-    class Program
+    class Cerdo : Animal
     {
-        static void Main(string[] args)
+       
+        public Cerdo(string name,Inventario inventario) : base(name, "hot Dog",4,0,3,2,inventario,"lechon")
         {
-            Granja granja = new Granja();
-            granja.Game();
         }
+      
+       
     }
 }

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace EXAMENDPRO1
 {
-    class Program
+    interface IAnimal
     {
-        static void Main(string[] args)
-        {
-            Granja granja = new Granja();
-            granja.Game();
-        }
+        void Ordeñar();
+        void RecibirCarne();
+
+        void Crecer();
     }
 }
